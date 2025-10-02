@@ -15,7 +15,7 @@ type TypographyProps<T extends React.ElementType> = {
 
 // A map of variant names to their corresponding Tailwind CSS classes
 const variantStyles = {
-  h1: 'scroll-m-20 text-4xl font-semibold tracking-tight md:text-5xl lg:text-8xl',
+  h1: 'scroll-m-20 mt-5 text-4xl font-semibold tracking-tight md:text-5xl lg:text-7xl',
   h2: 'scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0',
   h3: 'scroll-m-20 text-2xl font-semibold tracking-tight',
   h4: 'scroll-m-20 text-xl font-semibold tracking-tight',
