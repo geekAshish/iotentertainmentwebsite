@@ -1,12 +1,14 @@
 import { Container } from '../ui/Container'
 import { Typography } from '../ui/Typography'
-import { Button } from '../ui/Button'
 
 import iot_about_img from '@/assets/iot_description.png'
+import CurvedLoopComponent from '../CurvedText/Index'
 
 const AboutUs = () => {
   return (
-    <Container>
+    <Container className='my-20'>
+        <div className='relative'>
+
 
         <div className='flex items-center justify-center gap-5'>
             <div className='w-1/2 flex items-end justify-end'>
@@ -23,6 +25,13 @@ const AboutUs = () => {
                 <button className='bg-black underline underline-offset-4 text-white mt-3'>Contact Us</button>
             </div>
         </div>
+
+<div className=' top-12 w-full absolute'>
+
+        <CurvedLoopComponent />
+</div>
+        </div>
+
     </Container>
   )
 }

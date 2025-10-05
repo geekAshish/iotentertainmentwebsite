@@ -1,4 +1,5 @@
 import AboutUs from "@/components/Section/AboutUs"
+import Portfolio from "@/components/Section/Portfolio"
 import TextMarquee from "@/components/TextMarquee"
 import { Container } from "@/components/ui/Container"
 import { Typography } from "@/components/ui/Typography"
@@ -17,7 +18,11 @@ const Home = () => {
 
       <TextMarquee />
 
+      {/* <LogoLoopsComponent /> */}
+
       <AboutUs />
+
+      <Portfolio />
 
     </>
   )
