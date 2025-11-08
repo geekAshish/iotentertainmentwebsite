@@ -27,7 +27,7 @@ export const Container = <T extends React.ElementType = 'div'>({
       // Use `twMerge` to intelligently merge base styles with custom classes
       className={twMerge(
         // Sets a max-width, centers the container, and applies responsive padding
-        'w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8',
+        'w-full max-w-8xl mx-auto px-4 sm:px-6 lg:px-8',
         className
       )}
       {...props}
