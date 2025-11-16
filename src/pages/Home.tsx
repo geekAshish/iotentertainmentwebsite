@@ -17,6 +17,7 @@ import NavBar from "@/components/common/NavBar/NavBar";
 import { BounceCardComponent } from "@/components/BounceCard/Index";
 import { AboutUsSection } from "@/components/Section/AboutUsv2";
 import { VerticalOutlineText } from "@/components/ui/VerticleOutlineText";
+import { portfolioProjectsImages } from "@/constant";
 
 const Home = () => {
   return (
@@ -107,7 +108,20 @@ const Home = () => {
       {/* --- Rest of your page --- */}
       <AboutUsSection />
       <Portfolio />
-      <BounceCardComponent />
+      <div className="hidden md:block">
+        <BounceCardComponent />
+      </div>
+      
+      <div className="md:hidden flex items-center justify-center flex-col gap-5 ">
+        {
+          portfolioProjectsImages?.map((portfolio, index) => {
+            return <div className="w-[350px] aspect-square border-3 border-white rounded-2xl" key={index}>
+              <img src={portfolio} alt="portfolio" className="rounded-2xl" />
+            </div>
+          })
+        }
+      </div>
+
       <WhatWeOffer />
       {/* <ScrollStackComponent /> */}
     </>
