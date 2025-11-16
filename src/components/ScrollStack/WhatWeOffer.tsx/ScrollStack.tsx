@@ -135,10 +135,10 @@ const OfferCard = ({ index, title, description, options, img, Icon, scrollYProgr
         top: `calc(${index * 0}rem)`, 
         zIndex: index,
       }}
-      className="sticky min-h-screen bg-black border border-gray-700/50 rounded-3xl p-10 origin-top"
+      className="sticky min-h-screen bg-black rounded-3xl origin-top pt-10"
     >
       <div style={{ minHeight: headerHeight }} className="flex items-center gap-4 mb-4">
-        {Icon && <Icon className="h-10 w-10 text-purple-400" />}
+        {Icon && <Icon className="h-10 w-10 text-blue-400" />}
         <h3 className="text-3xl md:text-4f ont-bold">{title}</h3>
       </div>
       <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl">
