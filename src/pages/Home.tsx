@@ -1,27 +1,29 @@
-import LiquidChrome from "@/components/LiquideChrome";
-import ScrollStackComponent from "@/components/ScrollStack/ScrollStackComponent";
+// import LiquidChrome from "@/components/LiquideChrome";
+// import ScrollStackComponent from "@/components/ScrollStack/ScrollStackComponent";
 import { WhatWeOffer } from "@/components/ScrollStack/WhatWeOffer.tsx/ScrollStack";
-import AboutUs from "@/components/Section/AboutUs";
 import Portfolio from "@/components/Section/Portfolio";
 import TextMarquee from "@/components/TextMarquee";
 import { Container } from "@/components/ui/Container";
 import { Typography } from "@/components/ui/Typography";
 
-import bg1 from "@/assets/bg1.jpg";
-import bg2 from "@/assets/bg2.jpg";
-import bg3 from "@/assets/bg3.jpg";
-import bg4 from "@/assets/bg4.jpg";
+// import bg1 from "@/assets/bg1.jpg";
+// import bg2 from "@/assets/bg2.jpg";
+// import bg3 from "@/assets/bg3.jpg";
+// import bg4 from "@/assets/bg4.jpg";
 import bg5 from "@/assets/bg5.jpg";
-import bg6 from "@/assets/bg6.jpg";
-import bg7 from "@/assets/bg7.jpg";
+// import bg6 from "@/assets/bg6.jpg";
+// import bg7 from "@/assets/bg7.jpg";
 import NavBar from "@/components/common/NavBar/NavBar";
+import { BounceCardComponent } from "@/components/BounceCard/Index";
+import { AboutUsSection } from "@/components/Section/AboutUsv2";
+import { VerticalOutlineText } from "@/components/ui/VerticleOutlineText";
 
 const Home = () => {
   return (
     <>
       {/* 1. This is the main parent container. 
              'relative' creates the positioning context for its children. */}
-      <div className="relative h-[600px]">
+      <div className="relative h-screen">
 
         {/* 2. This is the Background Image.
              - 'absolute inset-0' makes it fill the parent.
@@ -38,7 +40,7 @@ const Home = () => {
              - 'z-20' puts it on TOP of the background (which is z-10).
              - Now this div has full width, so your TextMarquee will work. */}
         <div className="absolute inset-0 z-20">
-          <Container className="">
+          <Container className="h-[calc(100vh-15em)]">
             <nav>
               <NavBar />
             </nav>
@@ -55,6 +57,17 @@ const Home = () => {
             </Typography>
           </Container>
 
+          <VerticalOutlineText
+          direction="up"
+          className="
+            top-1/2 right-8 
+            -translate-y-1/2 
+            text-[10em] font-extrabold
+          "
+        >
+          CREATIVE
+        </VerticalOutlineText>
+
           {/* This component now has a full-width parent to scroll within */}
           <TextMarquee />
         </div>
@@ -62,13 +75,14 @@ const Home = () => {
 
       {/* --- Rest of your page --- */}
 
-      <AboutUs />
+      <AboutUsSection />
 
       <Portfolio />
 
+      <BounceCardComponent />
+
       {/* <div className="h-screen bg-black" /> */}
       <WhatWeOffer />
-      <div className="h-screen bg-black" />
 
       {/* <ScrollStackComponent /> */}
     </>

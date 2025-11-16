@@ -2,25 +2,62 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Briefcase, Rss, Star, Tv } from 'lucide-react';
 
+// import influencerBg from "@/assets/influencer.jpg"
+
+import ideaBg from "@/assets/bnw-idea.png"
+import rockerBg from "@/assets/bnw-rocker.png"
+import targetBg from "@/assets/bnw-target.png"
+import funBg from "@/assets/fun-3d.png"
+
+
+
 const offerings = [
  {
   title: "Influencer Marketing",
   description: "We connect your brand with top-tier influencers to create authentic, engaging campaigns that resonate with millions. From strategy to execution, we manage it all.",
+  options: [
+    "Strategic creator partnerships",
+    "Creative inputs with seamless execution",
+    "Optimized costs",
+    "Comprehensive campaign reports",
+  ],
+  img: funBg,
   Icon: Rss,
  },
  {
   title: "Digital IPs",
   description: "We build and scale digital intellectual properties from the ground up. This includes creating unique content formats, series, and online personas that capture audiences.",
+  options: [
+    "Strategic creator partnerships",
+    "Creative inputs with seamless execution",
+    "Optimized costs",
+    "Comprehensive campaign reports",
+  ],
+  img: ideaBg,
   Icon: Tv,
  },
  {
   title: "Talent Management",
   description: "Our agency represents a diverse roster of emerging and established digital talent. We focus on long-term career growth, brand partnerships, and strategic opportunities.",
+  options: [
+    "Strategic creator partnerships",
+    "Creative inputs with seamless execution",
+    "Optimized costs",
+    "Comprehensive campaign reports",
+  ],
+  img: rockerBg,
   Icon: Star,
  },
  {
   title: "IOT Studio",
   description: "Our in-house production studio, 'It's On Trend Studio,' is equipped to produce high-quality video, audio, and photo content tailored for the digital landscape.",
+  options: [
+    "Strategic creator partnerships",
+    "Creative inputs with seamless execution",
+    "Optimized costs",
+    "Comprehensive campaign reports",
+  ],
+  img: targetBg,
   Icon: Briefcase,
  },
  {
@@ -29,8 +66,6 @@ const offerings = [
   Icon: null,
  },
 ];
-
-// --- Main Component ---
 
 export const WhatWeOffer = () => {
  const scrollRef = React.useRef<HTMLDivElement | null>(null);
@@ -71,7 +106,8 @@ export const WhatWeOffer = () => {
  );
 };
 
-const OfferCard = ({ index, title, description, Icon, scrollYProgress }) => {
+const OfferCard = ({ index, title, description, options, img, Icon, scrollYProgress }) => {
+  console.log(options);
   
   const totalOffers = offerings.length;
   
@@ -96,7 +132,7 @@ const OfferCard = ({ index, title, description, Icon, scrollYProgress }) => {
     <motion.div
       style={{
         scale,
-        top: `calc(${index * 6.5}rem)`, 
+        top: `calc(${index * 0}rem)`, 
         zIndex: index,
       }}
       className="sticky min-h-screen bg-black border border-gray-700/50 rounded-3xl p-10 origin-top"
@@ -108,6 +144,24 @@ const OfferCard = ({ index, title, description, Icon, scrollYProgress }) => {
       <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl">
         {description}
       </p>
+
+    <div className='flex justify-between items-start mt-5'>
+      <div>
+        {
+          options?.map((option, key) => {
+            return <p key={key} className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mt-3">
+              {option}
+            </p>
+          })
+        }
+      </div>
+
+      <div className='w-[20em]'>
+        <img src={img} alt="img" />
+      </div>
+    </div>
+
+
     </motion.div>
   );
 };

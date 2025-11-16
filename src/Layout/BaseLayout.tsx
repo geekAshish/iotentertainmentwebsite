@@ -1,5 +1,4 @@
-import NavBar from "@/components/common/NavBar/NavBar"
-import { Container } from "@/components/ui/Container"
+import { Footer } from "@/components/common/Footer/Footer"
 import Home from "@/pages/Home"
 import { Route, Routes } from "react-router-dom"
 
@@ -11,6 +10,10 @@ const BaseLayout = () => {
           <Route path="/" element={<Home />} />
         </Routes>
       </main>
+
+      <footer>
+        <Footer />
+      </footer>
     </div>
   )
 }
