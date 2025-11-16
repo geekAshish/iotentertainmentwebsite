@@ -21,69 +21,94 @@ import { VerticalOutlineText } from "@/components/ui/VerticleOutlineText";
 const Home = () => {
   return (
     <>
-      {/* 1. This is the main parent container. 
-             'relative' creates the positioning context for its children. */}
       <div className="relative h-screen">
-
-        {/* 2. This is the Background Image.
-             - 'absolute inset-0' makes it fill the parent.
-             - 'w-full h-full object-cover' makes the image cover the space.
-             - 'z-10' puts it in the background layer. */}
         <img
           src={bg5}
           alt="background image"
           className="absolute inset-0 w-full h-full object-cover opacity-50 z-10"
         />
 
-        {/* 3. This is the Content Layer.
-             - 'absolute inset-0' also makes it fill the parent.
-             - 'z-20' puts it on TOP of the background (which is z-10).
-             - Now this div has full width, so your TextMarquee will work. */}
-        <div className="absolute inset-0 z-20">
-          <Container className="h-[calc(100vh-15em)]">
+        {/* 1. Use flex-col for a robust vertical layout */}
+        <div className="absolute inset-0 z-20 flex flex-col h-full">
+          {/* 2. Container now takes up the remaining space. 
+               'overflow-y-auto' handles content overflow on small screens.
+          */}
+          <Container className="flex-1">
             <nav>
               <NavBar />
             </nav>
 
-            <Typography variant="h1" className="text-white font-thin">
+            {/* 3. Added responsive font sizes: mobile-first */}
+            <Typography
+              variant="h1"
+              className="
+                hidden
+                text-white 
+                font-thin 
+                text-4xl 
+                leading-tight 
+                sm:text-6xl 
+                lg:text-7xl 
+                lg:leading-tight
+              "
+            >
               Brand.<span className="text-gray-600">Design</span>.
               <span className="text-gray-600">Product</span>.
-            </Typography>
-            <Typography variant="h1" className="text-white font-thin">
+              <br />
               In-House Development.
+              <br />
+              &More
             </Typography>
-            <Typography variant="h1" className="text-white font-thin">
+            <Typography
+              variant="h1"
+              className="
+                md:block
+                text-white 
+                font-thin 
+                text-7xl 
+                leading-tight 
+                sm:text-6xl 
+                lg:text-7xl 
+                lg:leading-tight
+              "
+            >
+              Brand.
+              <span className="text-gray-600 inline-block">Design</span>.
+              <span className="text-gray-600 inline-block">Product</span>.
+              <br />
+              In-House Production.
+              <br />
               &More
             </Typography>
           </Container>
 
+          {/* 4. HIDE the huge decorative text on mobile.
+               'hidden md:block' is the cleanest fix.
+          */}
           <VerticalOutlineText
-          direction="up"
-          className="
-            top-1/2 right-8 
-            -translate-y-1/2 
-            text-[10em] font-extrabold
-          "
-        >
-          CREATIVE
-        </VerticalOutlineText>
+            direction="up"
+            className="
+              hidden md:block 
+              absolute top-1/2 md:right-4 
+              -translate-y-1/2 
+              text-[7em] lg:text-[10em] font-extrabold
+            "
+          >
+            CREATIVE
+          </VerticalOutlineText>
 
-          {/* This component now has a full-width parent to scroll within */}
-          <TextMarquee />
+          {/* 5. Marquee sits at the bottom */}
+          <div className="h-auto">
+            <TextMarquee />
+          </div>
         </div>
       </div>
 
       {/* --- Rest of your page --- */}
-
       <AboutUsSection />
-
       <Portfolio />
-
       <BounceCardComponent />
-
-      {/* <div className="h-screen bg-black" /> */}
       <WhatWeOffer />
-
       {/* <ScrollStackComponent /> */}
     </>
   );

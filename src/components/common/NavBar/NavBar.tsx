@@ -1,35 +1,102 @@
-import { Button } from "@/components/ui/Button"
-import { navbar } from "@/modules/constant/constant"
-import { ArrowRight } from "lucide-react"
-import { Link } from "react-router-dom"
-
-import logo_img from "@/assets/logo.png"
+import { Button } from "@/components/ui/Button";
+import { navbar } from "@/modules/constant/constant";
+import { ArrowRight, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useState } from "react"; // Import useState for state management
 
 const NavBar = () => {
+  // 1. Add state to track if the mobile menu is open
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // 2. Create a function to toggle the menu
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <div className="flex items-center justify-between gap-10 rounded-full bg-neutral-950 px-4 py-3 shadow-lg mx-auto mt-6">
-        <div className="flex justify-between items-center gap-10">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
-                {/* <img src={logo_img} alt="logo image" className="w-30" /> */}
-                IOT<span className="text-blue-400">E</span>
-            </div>
+    // 3. Add 'relative' to the container to position the mobile menu
+    <div className="relative flex items-center justify-between gap-10 rounded-full bg-neutral-950 px-4 py-3 shadow-lg mx-auto mt-6">
+      
+      {/* --- Logo & Desktop Nav --- */}
+      <div className="flex justify-between items-center gap-10">
+        <div className="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-full bg-white font-bold">
+          IOT<span className="text-blue-400">E</span>
+        </div>
 
-            <div>
-                <ul className="flex items-center gap-3">
-                    {
-                        navbar.map((d, i) => {
-                            return <Link to={d.route} key={i} className="text-sm font-medium text-white hover:text-black hover:bg-white hover:rounded-full py-2 px-3">{d.text}</Link>
-                        })
-                    }
-                </ul>
-            </div>
+        {/* 4. Desktop Navigation Links (Hidden on mobile) */}
+        <div>
+          <ul className="hidden md:flex items-center gap-3">
+            {navbar.map((d, i) => {
+              return (
+                <Link
+                  to={d.route}
+                  key={i}
+                  className="text-sm font-medium text-white hover:text-black hover:bg-white hover:rounded-full py-2 px-3 transition-colors"
+                >
+                  {d.text}
+                </Link>
+              );
+            })}
+          </ul>
         </div>
-        
-        <div className="flex justify-center items-center gap-1">
-            <Button rightIcon={<ArrowRight size={16}/>} className="cursor-pointer border rounded-full">Contact Us</Button>
+      </div>
+      
+      {/* --- Desktop Contact Button (Hidden on mobile) --- */}
+      <div className="hidden md:flex justify-center items-center gap-1">
+        <Button
+          rightIcon={<ArrowRight size={16} />}
+          className="cursor-pointer border rounded-full"
+        >
+          Contact Us
+        </Button>
+      </div>
+
+      {/* --- Mobile Menu Button (Visible on mobile only) --- */}
+      <div className="md:hidden">
+        <button onClick={toggleMenu} className="text-white p-2">
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* --- Mobile Menu Overlay (Conditionally rendered) --- */}
+      {isMenuOpen && (
+        <div className="absolute top-0 left-0 w-full h-screen bg-neutral-950 z-50 flex flex-col items-center justify-center gap-10 p-4">
+          
+          {/* Close Button inside menu */}
+          <button
+            onClick={toggleMenu}
+            className="absolute top-9 right-4 text-white"
+          >
+            <X size={24} />
+          </button>
+
+          {/* Mobile Nav Links */}
+          <ul className="flex flex-col items-center gap-8">
+            {navbar.map((d, i) => {
+              return (
+                <Link
+                  to={d.route}
+                  key={i}
+                  onClick={toggleMenu} // Close menu when a link is clicked
+                  className="text-2xl font-medium text-white"
+                >
+                  {d.text}
+                </Link>
+              );
+            })}
+          </ul>
+
+          {/* Mobile Contact Button */}
+          <Button
+            rightIcon={<ArrowRight size={16} />}
+            className="cursor-pointer border rounded-full text-lg px-6 py-3"
+          >
+            Contact Us
+          </Button>
         </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
