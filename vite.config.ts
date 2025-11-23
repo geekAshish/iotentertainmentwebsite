@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/new-react-site/',
+  base: '/iotentertainment/',
   plugins: [
     react(),
     tailwindcss(),
