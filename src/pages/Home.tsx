@@ -18,11 +18,17 @@ import { BounceCardComponent } from "@/components/BounceCard/Index";
 import { AboutUsSection } from "@/components/Section/AboutUsv2";
 import { VerticalOutlineText } from "@/components/ui/VerticleOutlineText";
 import { portfolioProjectsImages } from "@/constant";
+import { GlowingCircle } from "@/components/CustomHero/GlowingCircle";
 
 const Home = () => {
   return (
     <>
       <div className="relative h-screen">
+        {/* 1. Add the Glowing Circle */}
+        {/* You can position it using top/left classes on a wrapper div */}
+        <GlowingCircle />
+
+      
         <img
           src={bg5}
           alt="background image"
@@ -45,7 +51,7 @@ const Home = () => {
               className="
                 hidden
                 text-white 
-                font-thin 
+                font-bold
                 text-4xl 
                 leading-tight 
                 sm:text-6xl 
@@ -65,7 +71,7 @@ const Home = () => {
               className="
                 md:block
                 text-white 
-                font-thin 
+                font-semibold 
                 text-7xl 
                 leading-tight 
                 sm:text-6xl 

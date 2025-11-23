@@ -29,7 +29,7 @@ export default function TextMarquee() {
     <div className="relative w-full bg-transparent flex flex-col justify-center overflow-hidden py-10">
       <AngledMarquee 
         angle={3} 
-        speed="fast"
+        speed="normal"
         pauseOnHover
       >
         <p className="flex items-center justify-center gap-10 text-2xl whitespace-nowrap py-5">
