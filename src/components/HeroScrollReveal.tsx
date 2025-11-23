@@ -1,8 +1,4 @@
-// src/components/HeroScrollReveal.tsx
-
-"use client";
-
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 
@@ -23,11 +19,13 @@ export const HeroScrollReveal: React.FC<HeroScrollRevealProps> = ({
   ctaLink,
   className,
 }) => {
-  const ref = React.useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'], // Start animation when component enters, end when it leaves
   });
+
+  // --- 1. Define all transforms at the top level (Rules of Hooks) ---
 
   // Animate opacity: text fades in from 0 to 1 as component scrolls into view
   const opacity = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0, 1, 1, 0]);
@@ -41,6 +39,10 @@ export const HeroScrollReveal: React.FC<HeroScrollRevealProps> = ({
   // For the background image parallax effect
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['-20%', '20%']);
 
+  // FIX: Derive these directly from scrollYProgress (number) instead of y (string)
+  // This avoids the "MotionValue<string> is not assignable to MotionValue<number>" error
+  const subTextY = useTransform(scrollYProgress, [0, 0.5, 1], ['40%', '0%', '-40%']);
+  const ctaY = useTransform(scrollYProgress, [0, 0.5, 1], ['60%', '0%', '-60%']);
 
   return (
     <div
@@ -57,7 +59,6 @@ export const HeroScrollReveal: React.FC<HeroScrollRevealProps> = ({
           backgroundImage: `url(${backgroundImage})`,
           y: backgroundY, // Apply parallax scroll to background
         }}
-        // Adding a slight blur or overlay to make text pop
       >
         <div className="absolute inset-0 bg-black/40 backdrop-brightness-75"></div>
       </motion.div>
@@ -67,7 +68,8 @@ export const HeroScrollReveal: React.FC<HeroScrollRevealProps> = ({
         {subText && (
           <motion.p
             className="text-xl md:text-2xl lg:text-3xl font-light text-white mb-4 max-w-4xl mx-auto"
-            style={{ opacity, y: useTransform(y, ['20%', '0%', '-20%'], ['40%', '0%', '-40%']) }} // Subtext moves more
+            // Use the pre-calculated variable 'subTextY'
+            style={{ opacity, y: subTextY }} 
           >
             {subText}
           </motion.p>
@@ -87,7 +89,8 @@ export const HeroScrollReveal: React.FC<HeroScrollRevealProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-8 px-8 py-3 bg-white text-black text-lg font-semibold rounded-full hover:bg-gray-200 transition-colors"
-            style={{ opacity, y: useTransform(y, ['20%', '0%', '-20%'], ['60%', '0%', '-60%']) }} // CTA moves even more
+            // Use the pre-calculated variable 'ctaY'
+            style={{ opacity, y: ctaY }} 
           >
             {ctaText}
           </motion.a>

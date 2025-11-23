@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { twMerge } from 'tailwind-merge';
 
 // Define the component's props with TypeScript for type safety

@@ -1,4 +1,3 @@
-import React from 'react'
 import GlitchText from './GlitchText'
 
 const GlitchTextComponent = () => {

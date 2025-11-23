@@ -1,5 +1,3 @@
-import React from 'react';
-
 // --- Placeholder images (replace with your own) ---
 const largeImage = "https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1740&auto=format&fit=crop";
 const smallImage = "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1740&auto=format&fit=crop";

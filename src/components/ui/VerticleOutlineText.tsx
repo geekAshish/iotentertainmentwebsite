@@ -1,6 +1,6 @@
 // src/components/VerticalOutlineText.tsx
 
-import React from 'react';
+
 import { twMerge } from 'tailwind-merge';
 
 interface VerticalOutlineTextProps {

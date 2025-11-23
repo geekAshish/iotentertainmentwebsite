@@ -1,15 +1,12 @@
-import React from 'react';
+
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Briefcase, Rss, Star, Tv } from 'lucide-react';
-
-// import influencerBg from "@/assets/influencer.jpg"
 
 import ideaBg from "@/assets/bnw-idea.png"
 import rockerBg from "@/assets/bnw-rocker.png"
 import targetBg from "@/assets/bnw-target.png"
 import funBg from "@/assets/fun-3d.png"
-
-
+import { useRef } from 'react';
 
 const offerings = [
  {
@@ -68,7 +65,7 @@ const offerings = [
 ];
 
 export const WhatWeOffer = () => {
- const scrollRef = React.useRef<HTMLDivElement | null>(null);
+ const scrollRef = useRef<HTMLDivElement | null>(null);
  
  const { scrollYProgress } = useScroll({
   target: scrollRef,
@@ -106,9 +103,7 @@ export const WhatWeOffer = () => {
  );
 };
 
-const OfferCard = ({ index, title, description, options, img, Icon, scrollYProgress }) => {
-  console.log(options);
-  
+const OfferCard = ({ index, title, description, options, img, Icon, scrollYProgress }: any) => {
   const totalOffers = offerings.length;
   
   // 1. We check if this is the last card
@@ -148,7 +143,7 @@ const OfferCard = ({ index, title, description, options, img, Icon, scrollYProgr
     <div className='flex justify-between items-start mt-5'>
       <div>
         {
-          options?.map((option, key) => {
+          options?.map((option: any, key: number) => {
             return <p key={key} className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mt-3">
               {option}
             </p>

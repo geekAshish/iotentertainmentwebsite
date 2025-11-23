@@ -1,14 +1,10 @@
-// src/components/YouTubeCarousel.tsx
-
-"use client";
-
-import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useCallback } from 'react';
 
 // Helper function to extract the YouTube video ID from various URL formats
 const getYouTubeVideoId = (url: string): string | null => {
-  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
   const match = url.match(regExp);
   return (match && match[2].length === 11) ? match[2] : null;
 };
@@ -35,11 +31,11 @@ export const YouTubeCarousel = ({ videoLinks }: { videoLinks: string[] }) => {
     containScroll: 'trimSnaps',
   });
 
-  const scrollPrev = React.useCallback(() => {
+  const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
   }, [emblaApi]);
 
-  const scrollNext = React.useCallback(() => {
+  const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
