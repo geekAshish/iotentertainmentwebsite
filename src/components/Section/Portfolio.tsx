@@ -12,13 +12,13 @@ const Portfolio = () => {
     ];
 
   return (
-    <Container className='mt-20'>
+    <Container className='mt-20 md:bg-[#131314] py-10'>
         <div>
-            <Typography className='text-white uppercase' variant='h1'>Portfolio</Typography>
+            <Typography className='md:text-white uppercase' variant='h1'>Portfolio</Typography>
         </div>
 
         <div className='flex justify-center items-center gap-5 mt-5'>
-            <div>
+            <div className='hidden md:block'>
                 <img src={p} alt="p" />
                 {/* <GlitchTextComponent /> */}
             </div>

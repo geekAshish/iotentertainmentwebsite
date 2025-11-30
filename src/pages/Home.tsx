@@ -10,7 +10,6 @@ import { Typography } from "@/components/ui/Typography";
 // import bg2 from "@/assets/bg2.jpg";
 // import bg3 from "@/assets/bg3.jpg";
 // import bg4 from "@/assets/bg4.jpg";
-import bg5 from "@/assets/bg5.jpg";
 // import bg6 from "@/assets/bg6.jpg";
 // import bg7 from "@/assets/bg7.jpg";
 import NavBar from "@/components/common/NavBar/NavBar";
@@ -19,6 +18,7 @@ import { AboutUsSection } from "@/components/Section/AboutUsv2";
 import { VerticalOutlineText } from "@/components/ui/VerticleOutlineText";
 import { portfolioProjectsImages } from "@/constant";
 import { GlowingCircle } from "@/components/CustomHero/GlowingCircle";
+import { ImageCarousel } from "@/components/ImageCarousel";
 
 const Home = () => {
   return (
@@ -29,7 +29,7 @@ const Home = () => {
         <GlowingCircle />
 
         {/* 1. Use flex-col for a robust vertical layout */}
-        <div className="absolute inset-0 z-20 flex flex-col h-full">
+        <div className="absolute inset-0 z-20 flex flex-col h-full bg-[#131314]">
           {/* 2. Container now takes up the remaining space. 
                'overflow-y-auto' handles content overflow on small screens.
           */}
@@ -111,17 +111,11 @@ const Home = () => {
         <BounceCardComponent />
       </div>
       
-      <div className="md:hidden flex items-center justify-center flex-col gap-5 ">
-        {
-          portfolioProjectsImages?.map((portfolio, index) => {
-            return <div className="w-[350px] aspect-square border-3 border-white rounded-2xl" key={index}>
-              <img src={portfolio} alt="portfolio" className="rounded-2xl" />
-            </div>
-          })
-        }
+      <div className="md:hidden flex items-center justify-center flex-col gap-5 my-10">
+        <ImageCarousel imageUrls={portfolioProjectsImages} />
       </div>
 
-      <WhatWeOffer />
+        <WhatWeOffer />
       {/* <ScrollStackComponent /> */}
     </>
   );

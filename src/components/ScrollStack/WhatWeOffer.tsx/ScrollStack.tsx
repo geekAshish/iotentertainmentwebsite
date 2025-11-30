@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Briefcase, Rss, Star, Tv } from 'lucide-react';
+import { Rss, Star, Tv } from 'lucide-react';
 
 import img1 from "@/assets/video_editing.png";
 import img2 from "@/assets/graphic_design.png";
@@ -45,12 +45,6 @@ const offerings = [
   img: img3,
   Icon: Star,
  },
- {
-  title: "",
-  description: "",
-  img1: '',
-  Icon: null,
- },
 ];
 
 export const WhatWeOffer = () => {
@@ -66,7 +60,7 @@ export const WhatWeOffer = () => {
  return (
   <section className="bg-white text-white">
    <div className="container mx-auto">
-    <div className="text-center mb-20">
+    <div className="text-center md:mb-20">
      <h2 className="text-black text-4xl md:text-6xl font-bold">What We Offer</h2>
      <p className="text-lg text-gray-400 mt-4">Our core services designed for the new era of entertainment.</p>
     </div>
@@ -91,7 +85,7 @@ export const WhatWeOffer = () => {
  );
 };
 
-const OfferCard = ({ index, title, description, options, img, Icon, scrollYProgress }: any) => {
+const OfferCard = ({ index, title, description, options, img, scrollYProgress }: any) => {
   const totalOffers = offerings.length;
   
   // 1. We check if this is the last card
@@ -111,10 +105,6 @@ const OfferCard = ({ index, title, description, options, img, Icon, scrollYProgr
   
   const headerHeight = '5rem'; 
 
-  if (index === 4) {
-    return
-  }
-
   return (
     <motion.div
       style={{
@@ -124,7 +114,7 @@ const OfferCard = ({ index, title, description, options, img, Icon, scrollYProgr
       }}
       className={`sticky flex items-center min-h-[20em] ${bgColor} origin-top`}
     >
-      <div style={{ minHeight: headerHeight }} className="flex items-start gap-4 p-10">
+      <div style={{ minHeight: headerHeight }} className="flex flex-col md:flex-row items-start gap-4 p-10">
       {/* 1. Icon sits on the left */}
       {/* {Icon && (
         <div className="shrink-0 mt-1">
@@ -151,12 +141,10 @@ const OfferCard = ({ index, title, description, options, img, Icon, scrollYProgr
         </div>
       </div>
 
-      {img && <div className='w-[35em]'>
+      {img && <div className='w-[20em] md:w-[35em]'>
         <img src={img} alt={`img-${index}`} className='rounded-xl' />
       </div>}
     </div>
-
-
     </motion.div>
   );
 };

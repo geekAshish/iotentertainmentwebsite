@@ -84,23 +84,25 @@ export const YouTubeCarousel = ({ videoLinks }: { videoLinks: string[] }) => {
       </div>
       
       {/* 3. Add Left and Right Gradient Overlays */}
-      <div className="absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-black to-transparent pointer-events-none z-10" />
-      <div className="absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-black to-transparent pointer-events-none z-10" />
+      {/* <div className="absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-black to-transparent pointer-events-none z-10" />
+      <div className="absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-black to-transparent pointer-events-none z-10" /> */}
       
       {/* Previous Button */}
       <button
         onClick={scrollPrev}
-        className="absolute top-1/2 left-0 cursor-pointer -translate-y-1/2 text-white rounded-full p-2 z-20"
+        className="absolute bottom-0 right-16 cursor-pointer -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 z-20 backdrop-blur-sm transition-all duration-200"
+        aria-label="Previous slide"
       >
-        <ArrowLeft className="h-8 w-8" />
+        <ArrowLeft className="h-6 w-6" />
       </button>
 
       {/* Next Button */}
       <button
         onClick={scrollNext}
-        className="absolute top-1/2 right-0 cursor-pointer -translate-y-1/2 text-white rounded-full p-2 z-20"
+        className="absolute bottom-0 right-4 cursor-pointer -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 z-20 backdrop-blur-sm transition-all duration-200"
+        aria-label="Next slide"
       >
-        <ArrowRight className="h-8 w-8" />
+        <ArrowRight className="h-6 w-6" />
       </button>
     </div>
   );

@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom"
 
 const BaseLayout = () => {
   return (
-    <div className="bg-[#000000]">
+    <div className="">
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

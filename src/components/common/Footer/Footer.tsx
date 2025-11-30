@@ -1,4 +1,5 @@
-// src/components/layout/Footer.tsx
+import logo from "@/assets/itoe_logo.png"
+
 
 import { 
   Mail, 
@@ -65,9 +66,9 @@ export const Footer = () => {
           <div className="flex flex-col gap-6 w-full md:w-1/2 lg:w-1/3">
             {/* Logo & Slogan */}
             <div>
-              <h2 className="text-4xl font-bold text-white">
-                IOT<span className="text-blue-400">E</span>
-              </h2>
+              <div className="flex-shrink-0 flex items-center justify-center text-white font-bold w-[5em]">
+                <img src={logo} alt="logo" />
+              </div>
               <p className="text-sm text-gray-400 mt-1">
                 India's Largest Creator Business
               </p>
@@ -75,12 +76,12 @@ export const Footer = () => {
             
             {/* Email */}
             <a 
-              href="mailto:business@monk-e.in" 
+              href="mailto:team@iot-e.in" 
               className="flex items-center gap-3 group"
             >
               <Mail size={24} className="text-white" />
-              <span className="text-xl font-semibold text-white group-hover:text-yellow-400 transition-colors duration-300">
-                business@itsontrend.in
+              <span className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
+                team@iot-e.in
               </span>
             </a>
 
@@ -115,7 +116,7 @@ export const Footer = () => {
                 Privacy Policy
               </a>
               <p className="max-w-md">
-                Copyright© Monk Entertainment 2025. All Rights Reserved — Website by Flowtrix
+                Copyright© It's on Trend Entertainment 2025. All Rights Reserved.
               </p>
             </div>
 

@@ -21,7 +21,7 @@ const NavBar = () => {
       
       {/* --- Logo & Desktop Nav --- */}
       <div className="flex justify-between items-center gap-10">
-        <div className="flex-shrink-0 flex items-center justify-center text-white font-bold w-[8em]">
+        <div className="flex-shrink-0 flex items-center justify-center text-white font-bold w-[5em]">
           <img src={logo} alt="logo" />
         </div>
 
