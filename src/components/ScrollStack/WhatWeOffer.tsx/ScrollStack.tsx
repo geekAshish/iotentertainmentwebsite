@@ -1,12 +1,12 @@
+import { useRef } from 'react';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Briefcase, Rss, Star, Tv } from 'lucide-react';
 
-import ideaBg from "@/assets/bnw-idea.png"
-import rockerBg from "@/assets/bnw-rocker.png"
-import targetBg from "@/assets/bnw-target.png"
-import funBg from "@/assets/fun-3d.png"
-import { useRef } from 'react';
+import img1 from "@/assets/video_editing.png";
+import img2 from "@/assets/graphic_design.png";
+import img3 from "@/assets/marketing.png";
+import arrow from '@/assets/top-arrow.png';
 
 const offerings = [
  {
@@ -18,7 +18,7 @@ const offerings = [
     "Optimized costs",
     "Comprehensive campaign reports",
   ],
-  img: funBg,
+  img: img1,
   Icon: Rss,
  },
  {
@@ -30,7 +30,7 @@ const offerings = [
     "Optimized costs",
     "Comprehensive campaign reports",
   ],
-  img: ideaBg,
+  img: img2,
   Icon: Tv,
  },
  {
@@ -42,31 +42,19 @@ const offerings = [
     "Optimized costs",
     "Comprehensive campaign reports",
   ],
-  img: rockerBg,
+  img: img3,
   Icon: Star,
- },
- {
-  title: "IOT Studio",
-  description: "Our in-house production studio, 'It's On Trend Studio,' is equipped to produce high-quality video, audio, and photo content tailored for the digital landscape.",
-  options: [
-    "Strategic creator partnerships",
-    "Creative inputs with seamless execution",
-    "Optimized costs",
-    "Comprehensive campaign reports",
-  ],
-  img: targetBg,
-  Icon: Briefcase,
  },
  {
   title: "",
   description: "",
+  img1: '',
   Icon: null,
  },
 ];
 
 export const WhatWeOffer = () => {
  const scrollRef = useRef<HTMLDivElement | null>(null);
- 
  const { scrollYProgress } = useScroll({
   target: scrollRef,
   offset: ['start start', 'end end'], 
@@ -76,10 +64,10 @@ export const WhatWeOffer = () => {
  const containerHeight = `${offerings.length * 100}vh`;
 
  return (
-  <section className="bg-black text-white py-24">
-   <div className="container mx-auto max-w-5xl">
+  <section className="bg-white text-white">
+   <div className="container mx-auto">
     <div className="text-center mb-20">
-     <h2 className="text-4xl md:text-6xl font-bold">What We Offer</h2>
+     <h2 className="text-black text-4xl md:text-6xl font-bold">What We Offer</h2>
      <p className="text-lg text-gray-400 mt-4">Our core services designed for the new era of entertainment.</p>
     </div>
 
@@ -116,6 +104,10 @@ const OfferCard = ({ index, title, description, options, img, Icon, scrollYProgr
     // If it's the last card, stay at 1. Otherwise, animate to 0.9
     [1, isLastCard ? 1 : 0.9]
   );
+
+  const bgColor = index % 2 === 0 ? "bg-white" : 'bg-white';
+  const textColor = index % 2 === 0 ? 'text-black' : "text-black"
+
   
   const headerHeight = '5rem'; 
 
@@ -130,30 +122,38 @@ const OfferCard = ({ index, title, description, options, img, Icon, scrollYProgr
         top: `calc(${index * 0}rem)`, 
         zIndex: index,
       }}
-      className="sticky min-h-screen bg-black rounded-3xl origin-top pt-10"
+      className={`sticky flex items-center min-h-[20em] ${bgColor} origin-top`}
     >
-      <div style={{ minHeight: headerHeight }} className="flex items-center gap-4 mb-4">
-        {Icon && <Icon className="h-10 w-10 text-blue-400" />}
-        <h3 className="text-3xl md:text-4f ont-bold">{title}</h3>
-      </div>
-      <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl">
-        {description}
-      </p>
+      <div style={{ minHeight: headerHeight }} className="flex items-start gap-4 p-10">
+      {/* 1. Icon sits on the left */}
+      {/* {Icon && (
+        <div className="shrink-0 mt-1">
+          <Icon className="h-10 w-10 text-blue-400" />
+        </div>
+      )} */}
 
-    <div className='flex justify-between items-start mt-5'>
-      <div>
-        {
-          options?.map((option: any, key: number) => {
-            return <p key={key} className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mt-3">
-              {option}
-            </p>
-          })
-        }
+      {/* 2. Text Wrapper: Holds both Title and Description */}
+      <div className="flex flex-col">
+        <h3 className={`${textColor} text-3xl md:text-4xl font-bold mb-2`}>
+          {title}
+        </h3>
+        <p className={`${textColor} text-lg leading-relaxed max-w-3xl`}>
+          {description}
+        </p>
+        <div>
+          {
+            options?.map((option: any, key: number) => {
+              return <p key={key} className={`${textColor} flex items-center gap-2 text-lg leading-relaxed max-w-3xl mt-1`}>
+                <img src={arrow} alt="arrow" className='w-5' /> {option}
+              </p>
+            })
+          }
+        </div>
       </div>
 
-      <div className='w-[20em]'>
-        <img src={img} alt="img" />
-      </div>
+      {img && <div className='w-[35em]'>
+        <img src={img} alt={`img-${index}`} className='rounded-xl' />
+      </div>}
     </div>
 
 

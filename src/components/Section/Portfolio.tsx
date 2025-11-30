@@ -12,9 +12,9 @@ const Portfolio = () => {
     ];
 
   return (
-    <Container className='mt-50'>
+    <Container className='mt-20'>
         <div>
-            <Typography className='text-white uppercase' variant='h2'>Portfolio</Typography>
+            <Typography className='text-white uppercase' variant='h1'>Portfolio</Typography>
         </div>
 
         <div className='flex justify-center items-center gap-5 mt-5'>

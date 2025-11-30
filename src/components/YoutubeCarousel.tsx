@@ -1,6 +1,6 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 // Helper function to extract the YouTube video ID from various URL formats
 const getYouTubeVideoId = (url: string): string | null => {
@@ -10,17 +10,38 @@ const getYouTubeVideoId = (url: string): string | null => {
 };
 
 // A simple component to render the YouTube iframe
-const YouTubeVideo = ({ videoId }: { videoId: string }) => (
-  <div className="aspect-video w-full">
-    <iframe
-      className="w-full h-full"
-      src={`https://www.youtube.com/embed/${videoId}`}
-      title="YouTube video player"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-  </div>
-);
+const YouTubeVideo = ({ videoId, coverImage }: { videoId: string, coverImage?: string }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black group cursor-pointer" onClick={() => setIsPlaying(true)}>
+      
+      {!isPlaying ? (
+        /* 1. Custom Cover with your own Play Button */
+        <div className="absolute inset-0 flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${coverImage || `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`})` }}>
+          {/* Dark Overlay for better text visibility */}
+          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all duration-300" />
+          
+          {/* Your Custom Minimalist Play Button */}
+          <div className="z-10 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+             <svg className="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
+               <path d="M8 5v14l11-7z" />
+             </svg>
+          </div>
+        </div>
+      ) : (
+        /* 2. Actual Video Loads Here (Auto-plays on load) */
+        <iframe
+          className="w-full h-full"
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0&controls=0`}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      )}
+    </div>
+  );
+};
 
 // The main Carousel Component
 export const YouTubeCarousel = ({ videoLinks }: { videoLinks: string[] }) => {

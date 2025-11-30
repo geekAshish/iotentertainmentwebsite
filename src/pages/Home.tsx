@@ -28,13 +28,6 @@ const Home = () => {
         {/* You can position it using top/left classes on a wrapper div */}
         <GlowingCircle />
 
-      
-        <img
-          src={bg5}
-          alt="background image"
-          className="absolute inset-0 w-full h-full object-cover opacity-50 z-10"
-        />
-
         {/* 1. Use flex-col for a robust vertical layout */}
         <div className="absolute inset-0 z-20 flex flex-col h-full">
           {/* 2. Container now takes up the remaining space. 

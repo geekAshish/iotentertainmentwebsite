@@ -1,8 +1,10 @@
+import { useState } from "react"; // Import useState for state management
+import { Link } from "react-router-dom";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { navbar } from "@/modules/constant/constant";
-import { ArrowRight, Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
-import { useState } from "react"; // Import useState for state management
+
+import logo from "@/assets/itoe_logo.png"
 
 const NavBar = () => {
   // 1. Add state to track if the mobile menu is open
@@ -15,12 +17,12 @@ const NavBar = () => {
 
   return (
     // 3. Add 'relative' to the container to position the mobile menu
-    <div className="relative flex items-center justify-between gap-10 rounded-full bg-neutral-950 px-4 py-3 shadow-lg mx-auto mt-6">
+    <div className="relative flex items-center justify-between gap-10 bg-neutral-950 px-4 py-3 shadow-lg mx-auto mt-6 rounded-lg">
       
       {/* --- Logo & Desktop Nav --- */}
       <div className="flex justify-between items-center gap-10">
-        <div className="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-full bg-white font-bold">
-          IOT<span className="text-blue-400">E</span>
+        <div className="flex-shrink-0 flex items-center justify-center text-white font-bold w-[8em]">
+          <img src={logo} alt="logo" />
         </div>
 
         {/* 4. Desktop Navigation Links (Hidden on mobile) */}
@@ -31,7 +33,7 @@ const NavBar = () => {
                 <Link
                   to={d.route}
                   key={i}
-                  className="text-sm font-medium text-white hover:text-black hover:bg-white hover:rounded-full py-2 px-3 transition-colors"
+                  className="text-lg font-medium text-white hover:text-black hover:bg-white hover:rounded-full py-1 px-2"
                 >
                   {d.text}
                 </Link>
