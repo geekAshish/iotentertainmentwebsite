@@ -15,14 +15,15 @@ interface AngledMarqueeProps extends React.HTMLAttributes<HTMLDivElement> {
 export const AngledMarquee = ({
   children,
   className,
-  angle = 5,
+  // angle = 5,
   direction = 'left',
   speed = 'normal',
   pauseOnHover = false,
   seamFixPx = 1,
   ...props
 }: AngledMarqueeProps) => {
-  const wrapperClasses = twMerge('relative w-full overflow-hidden', className);
+  // const wrapperClasses = twMerge('relative w-full overflow-hidden', className);
+  const wrapperClasses = twMerge('w-full overflow-hidden', className);
 
   const getDuration = () => {
     if (typeof speed === 'number') return `${speed}s`;
@@ -39,7 +40,7 @@ export const AngledMarquee = ({
 
   const duration = getDuration();
   const animationName = direction === 'left' ? 'fm-marquee-left' : 'fm-marquee-right';
-  const rotateDeg = direction === 'left' ? -angle : angle;
+  // const rotateDeg = direction === 'left' ? -angle : angle;
 
   const [isPaused, setIsPaused] = useState(false);
   const onEnter = useCallback(() => { if (pauseOnHover) setIsPaused(true); }, [pauseOnHover]);
@@ -88,7 +89,7 @@ export const AngledMarquee = ({
 
       <div
         className={wrapperClasses}
-        style={{ transform: `rotate(${rotateDeg}deg)` }}
+        // style={{ transform: `rotate(${rotateDeg}deg)` }}
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
         {...props}

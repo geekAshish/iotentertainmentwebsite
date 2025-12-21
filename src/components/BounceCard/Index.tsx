@@ -1,5 +1,4 @@
 
-import { Typography } from '../ui/Typography';
 import BounceCards from './BounceCard'
 import { portfolioProjectsImages } from '@/constant';
 
@@ -15,8 +14,8 @@ const transformStyles = [
 export const BounceCardComponent = () => {
 return <div>
 
-<div className='bg-white py-10'>
-  <Typography className='uppercase ml-7' variant='h1'>Social Media Post's</Typography>
+<div className='py-10'>
+  <h2 className="text-white text-center text-4xl md:text-6xl font-bold">Social Media Post's</h2>
 
   <div className='flex items-center justify-center mt-[1em] h-[30em]'>
   <BounceCards

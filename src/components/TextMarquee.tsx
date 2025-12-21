@@ -26,7 +26,7 @@ export default function TextMarquee() {
      * I've replaced it with 'py-4' (padding-top/bottom) 
      * to match the height in your screenshot.
      */
-    <div className="relative w-full bg-transparent flex flex-col justify-center overflow-hidden py-10">
+    <div className="w-full bg-transparent flex flex-col justify-center overflow-hidden">
       <AngledMarquee 
         angle={3} 
         speed="normal"

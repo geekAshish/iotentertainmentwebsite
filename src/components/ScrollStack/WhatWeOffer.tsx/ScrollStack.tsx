@@ -58,10 +58,10 @@ export const WhatWeOffer = () => {
  const containerHeight = `${offerings.length * 100}vh`;
 
  return (
-  <section className="bg-white text-white">
+  <section className="text-white">
    <div className="container mx-auto">
     <div className="text-center md:mb-20">
-     <h2 className="text-black text-4xl md:text-6xl font-bold">What We Offer</h2>
+     <h2 className="text-white text-4xl md:text-6xl font-bold">What We Offer</h2>
      <p className="text-lg text-gray-400 mt-4">Our core services designed for the new era of entertainment.</p>
     </div>
 
@@ -112,7 +112,7 @@ const OfferCard = ({ index, title, description, options, img, scrollYProgress }:
         top: `calc(${index * 0}rem)`, 
         zIndex: index,
       }}
-      className={`sticky flex items-center min-h-[20em] ${bgColor} origin-top`}
+      className={`sticky flex items-center rounded-xl my-4 min-h-[20em] ${bgColor} origin-top`}
     >
       <div style={{ minHeight: headerHeight }} className="flex flex-col md:flex-row items-start gap-4 p-10">
       {/* 1. Icon sits on the left */}

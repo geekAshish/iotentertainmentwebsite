@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { navbar } from "@/modules/constant/constant";
 
 import logo from "@/assets/itoe_logo.png"
+import { AnimatedLogo } from "../AnimatedLogo";
 
 const NavBar = () => {
   // 1. Add state to track if the mobile menu is open
@@ -21,9 +22,7 @@ const NavBar = () => {
       
       {/* --- Logo & Desktop Nav --- */}
       <div className="flex justify-between items-center gap-10">
-        <div className="flex-shrink-0 flex items-center justify-center text-white font-bold w-[5em]">
-          <img src={logo} alt="logo" />
-        </div>
+        <AnimatedLogo logoSrc={logo || logo} />
 
         {/* 4. Desktop Navigation Links (Hidden on mobile) */}
         <div>
