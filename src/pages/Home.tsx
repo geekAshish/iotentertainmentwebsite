@@ -14,6 +14,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 // Make sure this path is correct
 import video from '@/assets/background_video.mp4'; 
+import LeadForm from "@/components/LeadForm";
 
 const Home = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -165,6 +166,8 @@ const Home = () => {
         </div>
         <WhatWeOffer />
       </div>
+
+      <LeadForm />
     </main>
   );
 };
