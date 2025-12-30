@@ -10,6 +10,16 @@
   font-family: "Onest", sans-serif;
 }
 
+/* index.css */
+body {
+  cursor: none; /* Hides the default arrow */
+}
+
+/* Optional: Bring back the pointer for links/buttons if you want */
+a, button {
+  cursor: pointer; 
+}
+
 .bg-noise {
   position: relative;
 }

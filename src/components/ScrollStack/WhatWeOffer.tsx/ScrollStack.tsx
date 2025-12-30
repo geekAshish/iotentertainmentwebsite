@@ -60,7 +60,7 @@ export const WhatWeOffer = () => {
  return (
   <section className="text-white">
    <div className="container mx-auto">
-    <div className="text-center md:mb-20">
+    <div className="text-center md:my-10">
      <h2 className="text-white text-4xl md:text-6xl font-bold">What We Offer</h2>
      <p className="text-lg text-gray-400 mt-4">Our core services designed for the new era of entertainment.</p>
     </div>

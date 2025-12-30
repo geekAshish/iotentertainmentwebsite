@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default function LeadForm() {
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxm139UoywfHkLpPvnfHhapUB3tMkMsHmZIf71GNCKq-KZIfmsouoK5q8Ri0esrNdbRuA/exec";
@@ -13,11 +13,11 @@ export default function LeadForm() {
 
   const [status, setStatus] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setStatus('Submitting...');
 

@@ -15,6 +15,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 // Make sure this path is correct
 import video from '@/assets/background_video.mp4'; 
 import LeadForm from "@/components/LeadForm";
+import ArrowFollow from "@/components/ArrowFollow";
 
 const Home = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -67,7 +68,7 @@ const Home = () => {
           {/* Navigation (Z-Index 50 to stay above video) */}
           <motion.div 
             style={{ opacity: contentOpacity }}
-            className="relative z-50 pt-6"
+            className="relative z-50"
           >
             <Container>
               <NavBar />
@@ -77,13 +78,13 @@ const Home = () => {
           {/* Hero Text Content */}
           <motion.div 
             style={{ opacity: contentOpacity }}
-            className="relative z-10 flex-1 flex flex-col justify-center pb-20 pointer-events-none" // pointer-events-none ensures scroll isn't blocked by text
+            className="relative z-10 flex flex-col justify-center pb-20 pointer-events-none" // pointer-events-none ensures scroll isn't blocked by text
           >
             <Container>
               <div className="max-w-5xl pointer-events-auto">
                 <Typography
                   variant="h1"
-                  className="font-bold tracking-tighter text-5xl leading-[1.1] sm:text-6xl sm:leading-[1.1] lg:text-[5.5rem] lg:leading-[1.05] text-white"
+                  className="font-bold  tracking-tighter text-5xl leading-[1.1] sm:text-6xl sm:leading-[1.1] lg:text-[5.5rem] lg:leading-[1.05] text-white"
                 >
                   India's
                   <span className="text-white/40 font-medium"> First</span>
@@ -161,6 +162,7 @@ const Home = () => {
         <div className="hidden md:block py-10">
           {/* <BounceCardComponent /> */}
         </div>
+          <ArrowFollow />
         <div className="md:hidden flex items-center justify-center flex-col gap-5 my-16">
           <ImageCarousel imageUrls={portfolioProjectsImages} />
         </div>
