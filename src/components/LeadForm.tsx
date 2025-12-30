@@ -44,70 +44,79 @@ export default function LeadForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-gray-800">Contact Us</h2>
+   <div className="max-w-md mx-auto p-6 bg-zinc-900 rounded-lg shadow-xl border border-zinc-800">
       
       <form onSubmit={handleSubmit} className="space-y-4">
         
         {/* Name */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Name</label>
+          {/* Changed: text-gray-700 -> text-zinc-300 */}
+          <label className="block text-sm font-medium text-zinc-300">Name</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:ring-blue-500"
+            // Changed: bg-white -> bg-zinc-800, text-black -> text-white, border-gray-300 -> border-zinc-700
+            className="mt-1 block w-full rounded-md border border-zinc-700 bg-zinc-800 text-white p-2 focus:border-blue-500 focus:ring-blue-500 placeholder-zinc-500"
+            placeholder="Your Name"
           />
         </div>
 
         {/* Contact Number */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Contact Number</label>
+          <label className="block text-sm font-medium text-zinc-300">Contact Number</label>
           <input
             type="tel"
             name="contact_number"
             value={formData.contact_number}
             onChange={handleChange}
             required
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="mt-1 block w-full rounded-md border border-zinc-700 bg-zinc-800 text-white p-2 focus:border-blue-500 focus:ring-blue-500 placeholder-zinc-500"
+            placeholder="+1 234 567 890"
           />
         </div>
 
         {/* Email */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Email</label>
+          <label className="block text-sm font-medium text-zinc-300">Email</label>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
             required
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="mt-1 block w-full rounded-md border border-zinc-700 bg-zinc-800 text-white p-2 focus:border-blue-500 focus:ring-blue-500 placeholder-zinc-500"
+            placeholder="you@example.com"
           />
         </div>
 
         {/* Description */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Description</label>
+          <label className="block text-sm font-medium text-zinc-300">Description</label>
           <textarea
             name="description"
             value={formData.description}
             onChange={handleChange}
             rows={3}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+            className="mt-1 block w-full rounded-md border border-zinc-700 bg-zinc-800 text-white p-2 focus:border-blue-500 focus:ring-blue-500 placeholder-zinc-500"
+            placeholder="Tell us about your project..."
           ></textarea>
         </div>
 
         <button
           type="submit"
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
         >
           {status === 'Submitting...' ? 'Sending...' : 'Submit'}
         </button>
 
-        {status && <p className="text-center text-sm mt-4 text-green-600">{status}</p>}
+        {status && (
+          <p className={`text-center text-sm mt-4 ${status.includes('Error') ? 'text-red-400' : 'text-green-400'}`}>
+            {status}
+          </p>
+        )}
       </form>
     </div>
   );

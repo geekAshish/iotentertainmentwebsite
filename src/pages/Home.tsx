@@ -52,7 +52,7 @@ const Home = () => {
   const videoOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 1]);
 
   return (
-    <main className="bg-[#131314] text-white selection:bg-white/20 selection:text-white">
+    <div className="bg-[#131314] text-white selection:bg-white/20 selection:text-white">
       
       {/* --- SCROLL WRAPPER (300vh = longer scroll for smoother animation) --- */}
       <div ref={containerRef} className="relative h-[300vh] w-full">
@@ -169,8 +169,12 @@ const Home = () => {
         <WhatWeOffer />
       </div>
 
-      <LeadForm />
-    </main>
+      <div className="py-10">
+      <h2 className="text-white text-center text-4xl md:text-6xl font-bold mb-5">Contact Us</h2>
+
+        <LeadForm />
+      </div>
+    </div>
   );
 };
 
