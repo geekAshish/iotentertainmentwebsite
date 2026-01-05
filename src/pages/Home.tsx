@@ -7,8 +7,8 @@ import TextMarquee from "@/components/TextMarquee";
 import { Container } from "@/components/ui/Container";
 import { Typography } from "@/components/ui/Typography";
 import NavBar from "@/components/common/NavBar/NavBar";
-import { portfolioProjectsImages } from "@/constant";
-import { ImageCarousel } from "@/components/ImageCarousel";
+// import { portfolioProjectsImages } from "@/constant";
+// import { ImageCarousel } from "@/components/ImageCarousel";
 import { VerticalOutlineText } from "@/components/ui/VerticleOutlineText";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -16,6 +16,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import video from '@/assets/background_video.mp4'; 
 import LeadForm from "@/components/LeadForm";
 import ArrowFollow from "@/components/ArrowFollow";
+import InfiniteMarquee from "@/components/InfiniteMarquee";
 
 const Home = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -163,9 +164,12 @@ const Home = () => {
           {/* <BounceCardComponent /> */}
         </div>
           <ArrowFollow />
-        <div className="md:hidden flex items-center justify-center flex-col gap-5 my-16">
+        {/* <div className="md:hidden flex items-center justify-center flex-col gap-5 my-16">
           <ImageCarousel imageUrls={portfolioProjectsImages} />
-        </div>
+        </div> */}
+
+        <InfiniteMarquee />
+
         <WhatWeOffer />
       </div>
 

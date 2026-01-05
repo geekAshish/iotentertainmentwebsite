@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Rss, Star, Tv } from "lucide-react";
 
-import img1 from "@/assets/video_editing.png";
-import img2 from "@/assets/graphic_design.png";
+import img1 from "@/assets/video_edting.webp";
+import img2 from "@/assets/graphic_design.jpg";
 import img3 from "@/assets/marketing.png";
 import arrow from "@/assets/top-arrow.png";
 
@@ -11,45 +11,46 @@ const HEADER_HEIGHT = "7rem";
 
 const offerings = [
   {
-    title: "Influencer Marketing",
+    title: "Video Editing",
     description:
-      "We connect your brand with top-tier influencers to create authentic, engaging campaigns that resonate with millions. From strategy to execution, we manage it all.",
+      "We craft high-impact videos that grab attention, tell your story, and drive results. From short-form social content to long-form brand films, we edit with performance in mind.",
     options: [
-      "Strategic creator partnerships",
-      "Creative inputs with seamless execution",
-      "Optimized costs",
-      "Comprehensive campaign reports",
+      "Short-form videos (Reels, Shorts, Ads)",
+      "Long-form YouTube & brand videos",
+      "Motion graphics & subtitles",
+      "Platform-optimized exports",
     ],
     img: img1,
-    Icon: Rss,
-  },
-  {
-    title: "Digital IPs",
-    description:
-      "We build and scale digital intellectual properties from the ground up. This includes creating unique content formats, series, and online personas that capture audiences.",
-    options: [
-      "Strategic creator partnerships",
-      "Creative inputs with seamless execution",
-      "Optimized costs",
-      "Comprehensive campaign reports",
-    ],
-    img: img2,
     Icon: Tv,
   },
   {
-    title: "Talent Management",
+    title: "Graphic Design",
     description:
-      "Our agency represents a diverse roster of emerging and established digital talent. We focus on long-term career growth, brand partnerships, and strategic opportunities.",
+      "We design visually striking creatives that communicate your brand clearly and consistently across every touchpoint — digital, social, and marketing.",
     options: [
-      "Strategic creator partnerships",
-      "Creative inputs with seamless execution",
-      "Optimized costs",
-      "Comprehensive campaign reports",
+      "Social media posts & carousels",
+      "Ad creatives & banners",
+      "Brand identity & visual systems",
+      "High-conversion landing creatives",
     ],
-    img: img3,
+    img: img2,
     Icon: Star,
   },
+  {
+    title: "Performance Marketing (Ads)",
+    description:
+      "We run data-driven ad campaigns focused on measurable growth. From strategy to scaling, every decision is optimized for ROI, not vanity metrics.",
+    options: [
+      "Meta & Google Ads management",
+      "Creative testing & optimization",
+      "Audience targeting & retargeting",
+      "Detailed performance reporting",
+    ],
+    img: img3,
+    Icon: Rss,
+  },
 ];
+
 
 export const WhatWeOffer = () => {
   const scrollRef = useRef<HTMLDivElement | null>(null);

@@ -116,7 +116,7 @@ export const Footer = () => {
                 Privacy Policy
               </a>
               <p className="max-w-md">
-                Copyright© It's on Trend Entertainment 2025. All Rights Reserved.
+                Copyright© It's on Trend Entertainment {new Date().getFullYear()}. All Rights Reserved.
               </p>
             </div>
 

@@ -6,7 +6,6 @@ const ArrowFollow = () => {
   const arrowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Disable mouse tracking on touch devices
     if (window.matchMedia("(pointer: coarse)").matches) return;
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -20,8 +19,7 @@ const ArrowFollow = () => {
       const deltaX = e.clientX - centerX;
       const deltaY = e.clientY - centerY;
 
-      const angleRad = Math.atan2(deltaY, deltaX);
-      rotate.set(angleRad * (180 / Math.PI));
+      rotate.set(Math.atan2(deltaY, deltaX) * (180 / Math.PI));
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -36,16 +34,13 @@ const ArrowFollow = () => {
           {/* LEFT */}
           <div className="flex flex-col items-center lg:items-start lg:col-span-5">
             <h1 className="mb-10 text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-left lg:text-6xl">
-              What defines us
+              What we do best
             </h1>
 
             <div className="relative flex h-56 w-full items-center justify-center sm:h-64 lg:h-80 lg:justify-start">
-              
-              {/* Background Circles */}
               <div className="absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gray-100 sm:h-64 sm:w-64 lg:left-0 lg:translate-x-0" />
               <div className="absolute left-[40%] top-1/2 hidden h-64 w-64 -translate-y-1/2 rounded-full border border-gray-100 lg:block" />
 
-              {/* Arrow */}
               <motion.div
                 ref={arrowRef}
                 style={{ rotate }}
@@ -71,16 +66,16 @@ const ArrowFollow = () => {
           {/* RIGHT */}
           <div className="flex flex-col justify-center lg:col-span-7">
             <h2 className="mb-6 max-w-3xl text-2xl font-bold leading-snug sm:text-3xl lg:text-4xl">
-              We’re brand builders at heart, creators by design, tech enthusiasts in practice, and integrated at our core.
+              We create scroll-stopping videos, bold visual identities, and performance-driven ad campaigns that help brands grow faster.
             </h2>
 
             <p className="mb-10 max-w-2xl text-base leading-relaxed text-gray-500 sm:text-lg">
-              We're on a mission to take the very best of Indian creative talent to the world. Driven by a ferocious hunger to create tangible impact for your business, we work with in-house specialists, industry partners and technology leaders.
+              From high-impact video editing and conversion-focused graphic design to data-driven performance marketing, we help brands stand out and scale. Every asset we create is designed to look great and deliver measurable results.
             </p>
 
             <div>
               <button className="group inline-flex items-center rounded-full bg-black px-7 py-4 text-sm font-medium text-white transition-transform hover:scale-105">
-                Dive Into Our Culture
+                Explore Our Services
                 <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
               </button>
             </div>
