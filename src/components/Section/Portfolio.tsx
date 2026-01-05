@@ -6,9 +6,9 @@ import p from '@/assets/p.png'
 
 const Portfolio = () => {
     const myVideos = [
-        'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
-        'https://youtu.be/LXb3EKWsInQ',
+        'https://www.youtube.com/watch?v=QlyJOIBbMf8',
+        'https://www.youtube.com/watch?v=FS03aWTVLUg',
+        'https://youtu.be/mleTrrUBc60',
     ];
 
   return (
