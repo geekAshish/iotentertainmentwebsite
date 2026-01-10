@@ -1,11 +1,11 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Rss, Star, Tv } from "lucide-react";
+import { Rss, Star, Tv, Share2 } from "lucide-react";
 
 import img1 from "@/assets/video_edting.webp";
 import img2 from "@/assets/graphic_design.jpg";
 import img3 from "@/assets/marketing.png";
-import arrow from "@/assets/top-arrow.png";
+import img4 from "@/assets/social-media.png";
 
 const HEADER_HEIGHT = "7rem";
 
@@ -49,6 +49,20 @@ const offerings = [
     img: img3,
     Icon: Rss,
   },
+  {
+  title: "Social Media Management",
+  description:
+    "We manage your social presence end-to-end — planning, posting, and optimizing content that builds brand authority, engages your audience, and drives consistent growth.",
+  options: [
+    "Content strategy & monthly planning",
+    "Post scheduling & publishing",
+    "Community management & engagement",
+    "Analytics, insights & growth reports",
+  ],
+  img: img4,
+  Icon: Share2,
+}
+
 ];
 
 
@@ -67,7 +81,7 @@ export const WhatWeOffer = () => {
   const headingScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
   return (
-    <section className="bg-black text-white">
+    <section id="services" className="bg-black text-white">
       <div className="mx-auto max-w-7xl px-4 py-10">
 
         {/* ✅ STICKY HEADING (EXACT HEIGHT) */}
@@ -119,52 +133,87 @@ const OfferCard = ({
   const scale = useTransform(
     scrollYProgress,
     [index / totalOffers, (index + 1) / totalOffers],
-    [1, isLastCard ? 1 : 0.9]
+    [1, isLastCard ? 1 : 0.92]
   );
 
   return (
     <motion.div
       style={{ scale, zIndex: index, top: HEADER_HEIGHT }}
       className={`
-      sticky
-      ${index === 0 ? "mt-6" : "mt-0"}
-      mb-6
-      flex min-h-[22rem]
-      origin-top rounded-xl bg-white
-    `}
+        sticky
+        ${index === 0 ? "mt-8" : "mt-0"}
+        mb-8
+        rounded-2xl
+        bg-white
+        shadow-[0_30px_80px_rgba(0,0,0,0.08)]
+        border border-gray-100
+        overflow-hidden
+        origin-top
+      `}
     >
-      <div className="flex flex-col gap-6 p-10 md:flex-row">
-        
-        {/* TEXT */}
-        <div className="flex flex-col">
-          <h3 className="mb-2 text-3xl md:text-4xl font-bold text-black">
-            {title}
-          </h3>
+      <div className="grid grid-cols-1 gap-10 p-8 md:grid-cols-2 md:p-12">
 
-          <p className="max-w-3xl text-lg leading-relaxed text-gray-700">
-            {description}
-          </p>
+        {/* LEFT — CONTENT */}
+        <div className="flex flex-col justify-between">
+          
+          {/* Title */}
+          <div>
+            <h3 className="mb-4 text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+              {title}
+            </h3>
 
-          <div className="mt-4 space-y-2">
+            <p className="max-w-xl text-base md:text-lg leading-relaxed text-gray-600">
+              {description}
+            </p>
+          </div>
+
+          {/* Options */}
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {options.map((option: string, key: number) => (
-              <p
+              <div
                 key={key}
-                className="flex items-center gap-2 text-lg text-gray-700"
+                className="
+                  flex items-center gap-3
+                  rounded-lg
+                  bg-gray-50
+                  px-4 py-3
+                  text-sm md:text-base
+                  text-gray-700
+                "
               >
-                <img src={arrow} alt="arrow" className="w-5" />
-                {option}
-              </p>
+                <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-black text-white text-xs">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </span>
+                <span>
+                  {option}
+                </span>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* IMAGE */}
+        {/* RIGHT — IMAGE */}
         {img && (
-          <div className="w-full md:w-[35em]">
+          <div className="relative flex items-center justify-center">
+            
+            {/* Soft background glow */}
+            <div className="absolute inset-0 rounded-2xl" />
+
             <img
               src={img}
               alt={`img-${index}`}
-              className="rounded-xl"
+              className="
+                relative
+                z-10
+                w-full
+                rounded-2xl
+                object-cover
+                shadow-[0_20px_60px_rgba(0,0,0,0.12)]
+                transition-transform duration-700
+                hover:scale-[1.03]
+              "
             />
           </div>
         )}
@@ -172,3 +221,4 @@ const OfferCard = ({
     </motion.div>
   );
 };
+

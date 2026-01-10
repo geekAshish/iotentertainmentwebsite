@@ -44,12 +44,14 @@ const NavBar = () => {
       
       {/* --- Desktop Contact Button (Hidden on mobile) --- */}
       <div className="hidden md:flex justify-center items-center gap-1">
-        <Button
-          rightIcon={<ArrowRight size={16} />}
-          className="cursor-pointer border rounded-full"
-        >
-          Contact Us
-        </Button>
+        <a href={'#contact-us'}>
+          <Button
+            rightIcon={<ArrowRight size={16} />}
+            className="cursor-pointer border rounded-full"
+            >
+            Contact Us
+          </Button>
+        </a>
       </div>
 
       {/* --- Mobile Menu Button (Visible on mobile only) --- */}
@@ -88,12 +90,15 @@ const NavBar = () => {
           </ul>
 
           {/* Mobile Contact Button */}
-          <Button
-            rightIcon={<ArrowRight size={16} />}
-            className="cursor-pointer border rounded-full text-lg px-6 py-3"
-          >
-            Contact Us
-          </Button>
+          <a href={'#contact-us'}>
+            <Button
+              rightIcon={<ArrowRight size={16} />}
+              className="cursor-pointer border rounded-full text-lg px-6 py-3"
+            >
+              Contact Us
+            </Button>
+          </a>
+
         </div>
       )}
     </div>

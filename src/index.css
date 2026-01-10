@@ -13,6 +13,7 @@
 /* index.css */
 body {
   cursor: none; /* Hides the default arrow */
+  scroll-behavior: smooth;
 }
 
 /* Optional: Bring back the pointer for links/buttons if you want */

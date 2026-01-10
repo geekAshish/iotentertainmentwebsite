@@ -3,19 +3,19 @@
 export const navbar = [
     {
         text: "Services",
-        route: "/services"
+        route: "#services"
     },
     {
         text: "Work",
-        route: "/work"
+        route: "#work"
     },
     {
         text: "Creators",
-        route: "/creators"
+        route: "#creators"
     },
     {
         text: "About",
-        route: "/about"
+        route: "#about"
     }
 ]
 
