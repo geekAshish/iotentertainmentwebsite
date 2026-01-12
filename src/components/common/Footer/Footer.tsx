@@ -70,7 +70,7 @@ export const Footer = () => {
                 <img src={logo} alt="logo" />
               </div>
               <p className="text-sm text-gray-400 mt-1">
-                India's Largest Creator Business
+                India's First Trend Building Business.
               </p>
             </div>
             
