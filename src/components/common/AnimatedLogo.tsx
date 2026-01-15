@@ -38,7 +38,7 @@ export const AnimatedLogo = ({ logoSrc }: AnimatedLogoProps) => {
 
       {/* 3. ANIMATED TEXT CAROUSEL */}
       {/* Fixed width prevents layout shifts. Adjust 'w-[6rem]' based on longest word. */}
-      <div className="relative h-7 w-[7rem] overflow-hidden flex items-center">
+      <div className="relative h-7 w-[8rem] overflow-hidden flex items-center">
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.div
             key={index}

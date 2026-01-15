@@ -1,5 +1,5 @@
 import { useState } from "react";
-import video from '@/assets/iot-avatar-mp4 new-bg-comp.webm'
+import video from '@/assets/iot-avatar-2-mp4 bg remove with green grass.webm';
 
 export default function LeadForm() {
   const GOOGLE_SCRIPT_URL =
@@ -45,7 +45,8 @@ export default function LeadForm() {
   };
 
   return (
-    <div className="flex w-full items-center justify-center px-4 py-10 sm:px-6">
+    // Added min-h-screen and bg-zinc-950 for a full-page dark layout
+    <div className="flex min-h-screen w-full items-center justify-center bg-zinc-950 px-4 py-10 sm:px-6 lg:px-8">
       <div
         className="
           mx-auto
@@ -57,43 +58,40 @@ export default function LeadForm() {
           rounded-2xl
           border border-zinc-800
           bg-zinc-900
-          shadow-xl
+          shadow-2xl
           md:flex-row
         "
       >
         {/* ==================== LEFT SIDE: VIDEO ==================== */}
-        <div className="relative h-64 w-full md:h-auto md:w-1/2">
+        {/* Changed h-64 to h-56 for better mobile compactness, md:h-auto stretches it */}
+        <div className="relative h-56 w-full shrink-0 md:h-auto md:w-1/2 lg:w-5/12">
           <video
-            className="absolute inset-0 h-full w-full object-contain"
+            className="absolute inset-0 h-full w-full object-cover" // object-cover eliminates gaps
             autoPlay
             loop
             muted
             playsInline
           >
-            {/* REPLACE THIS URL WITH YOUR VIDEO PATH */}
-            <source
-              src={video}
-              type="video/mp4"
-            />
+            <source src={video} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          
-          {/* Optional: Dark Overlay to make it look cinematic */}
-          <div className="absolute inset-0 bg-blue-900/20 mix-blend-multiply" />
-          
-          {/* Optional: Text Over Video */}
-          <div className="absolute bottom-6 left-6 right-6">
-            <h2 className="text-2xl font-bold text-white drop-shadow-md">
+
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-blue-900/30 mix-blend-multiply" />
+
+          {/* Text Over Video */}
+          <div className="absolute bottom-6 left-6 right-6 z-10">
+            <h2 className="text-2xl font-bold text-white drop-shadow-md sm:text-3xl">
               Build with Us
             </h2>
-            <p className="text-sm text-zinc-200 drop-shadow-md">
+            <p className="mt-1 text-sm text-zinc-100 drop-shadow-md sm:text-base">
               Let's create something amazing together.
             </p>
           </div>
         </div>
 
         {/* ==================== RIGHT SIDE: FORM ==================== */}
-        <div className="w-full p-6 md:w-1/2 md:p-10 lg:p-12">
+        <div className="flex w-full flex-col justify-center p-6 md:w-1/2 md:p-10 lg:w-7/12 lg:p-12">
           {/* Heading */}
           <div className="mb-6">
             <h3 className="text-2xl font-semibold text-white sm:text-3xl">
@@ -104,7 +102,7 @@ export default function LeadForm() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
             {/* Name */}
             <div>
               <label className="block text-sm font-medium text-zinc-300">
@@ -118,13 +116,14 @@ export default function LeadForm() {
                 required
                 placeholder="Your name"
                 className="
-                  mt-1 w-full rounded-lg
+                  mt-1.5 w-full rounded-lg
                   border border-zinc-700
-                  bg-zinc-800
-                  px-3 py-2.5
+                  bg-zinc-800/50
+                  px-4 py-2.5
                   text-white
                   placeholder-zinc-500
-                  focus:border-blue-500 focus:ring-1 focus:ring-blue-500
+                  transition-all
+                  focus:border-blue-500 focus:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500
                 "
               />
             </div>
@@ -142,13 +141,14 @@ export default function LeadForm() {
                 required
                 placeholder="+1 234 567 890"
                 className="
-                  mt-1 w-full rounded-lg
+                  mt-1.5 w-full rounded-lg
                   border border-zinc-700
-                  bg-zinc-800
-                  px-3 py-2.5
+                  bg-zinc-800/50
+                  px-4 py-2.5
                   text-white
                   placeholder-zinc-500
-                  focus:border-blue-500 focus:ring-1 focus:ring-blue-500
+                  transition-all
+                  focus:border-blue-500 focus:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500
                 "
               />
             </div>
@@ -166,13 +166,14 @@ export default function LeadForm() {
                 required
                 placeholder="you@example.com"
                 className="
-                  mt-1 w-full rounded-lg
+                  mt-1.5 w-full rounded-lg
                   border border-zinc-700
-                  bg-zinc-800
-                  px-3 py-2.5
+                  bg-zinc-800/50
+                  px-4 py-2.5
                   text-white
                   placeholder-zinc-500
-                  focus:border-blue-500 focus:ring-1 focus:ring-blue-500
+                  transition-all
+                  focus:border-blue-500 focus:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500
                 "
               />
             </div>
@@ -189,13 +190,14 @@ export default function LeadForm() {
                 rows={3}
                 placeholder="Tell us about your project..."
                 className="
-                  mt-1 w-full rounded-lg
+                  mt-1.5 w-full rounded-lg
                   border border-zinc-700
-                  bg-zinc-800
-                  px-3 py-2.5
+                  bg-zinc-800/50
+                  px-4 py-2.5
                   text-white
                   placeholder-zinc-500
-                  focus:border-blue-500 focus:ring-1 focus:ring-blue-500
+                  transition-all
+                  focus:border-blue-500 focus:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500
                 "
               />
             </div>
@@ -203,26 +205,27 @@ export default function LeadForm() {
             {/* Submit */}
             <button
               type="submit"
+              disabled={status === "Submitting..."}
               className="
-                mt-4 w-full
+                mt-6 w-full
                 rounded-lg
                 bg-blue-600
                 py-3
                 text-sm font-medium text-white
-                transition-colors
-                hover:bg-blue-700
-                focus:outline-none focus:ring-2 focus:ring-blue-500
+                shadow-lg shadow-blue-500/20
+                transition-all
+                hover:bg-blue-500 hover:shadow-blue-500/40
+                active:scale-[0.98]
+                disabled:cursor-not-allowed disabled:opacity-70
               "
             >
-              {status === "Submitting..." ? "Sending..." : "Submit"}
+              {status === "Submitting..." ? "Sending..." : "Submit Inquiry"}
             </button>
 
             {status && (
               <p
-                className={`text-center text-sm mt-2 ${
-                  status.includes("Error")
-                    ? "text-red-400"
-                    : "text-green-400"
+                className={`text-center text-sm font-medium mt-2 animate-pulse ${
+                  status.includes("Error") ? "text-red-400" : "text-green-400"
                 }`}
               >
                 {status}
