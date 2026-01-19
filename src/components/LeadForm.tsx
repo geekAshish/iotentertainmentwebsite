@@ -46,7 +46,9 @@ export default function LeadForm() {
 
   return (
     // Added min-h-screen and bg-zinc-950 for a full-page dark layout
-    <div className="flex min-h-screen w-full items-center justify-center bg-zinc-950 px-4 py-10 sm:px-6 lg:px-8">
+    <div className="bg-zinc-950">
+      <h2 id="contact-us" className="text-white text-center text-4xl md:text-6xl font-bold mb-5">Contact Us</h2>
+    <div className="flex min-h-screen w-full items-center justify-center px-4 py-10 sm:px-6 lg:px-8">
       <div
         className="
           mx-auto
@@ -234,6 +236,7 @@ export default function LeadForm() {
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 }

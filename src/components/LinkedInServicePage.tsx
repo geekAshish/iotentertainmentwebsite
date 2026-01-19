@@ -1,12 +1,12 @@
 import { Quote, Linkedin } from "lucide-react";
 
-
-const amanImg = "https://media.licdn.com/dms/image/v2/D5603AQFGd0MKzxIKVg/profile-displayphoto-scale_200_200/B56ZjaJfJiG4AY-/0/1756006579143?e=1770249600&v=beta&t=u6wqYIaWMrtYy-49pBhIjru2aIoZLp1iqsxoudeUXYA"
-const jordanImg = "https://media.licdn.com/dms/image/v2/D4D03AQHDdmG9LSKSrw/profile-displayphoto-scale_200_200/B4DZkr2I.rJkAY-/0/1757377238966?e=1770249600&v=beta&t=5hPoCGWm0w-EV3zKninUzgTeeDs2RLV2yvFtVMYTqw4"
-const kyleImg = "https://media.licdn.com/dms/image/v2/D5603AQE3owjTmQM9Tw/profile-displayphoto-scale_200_200/B56ZivNEYyG0Ac-/0/1755286095861?e=1770249600&v=beta&t=ap674sJdjPilIw36TNiHlKnlEkvQOMCrq6NpDmTrViQ"
-const jayImg = "https://media.licdn.com/dms/image/v2/C4E03AQFO-8em7wwr0Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517725580714?e=1770249600&v=beta&t=sPdulpsC-qBlq6KuUMMO35y0cECjxrmZxuOdP4ZFl0A"
-const patrickImg = "https://media.licdn.com/dms/image/v2/D4E03AQFJL-xT7mDtpg/profile-displayphoto-scale_200_200/B4EZquYZlhHMAY-/0/1763862224061?e=1770249600&v=beta&t=Ojez51rr8j4ApzNi_ZPbBAa_9wPpZWIA9bpg5Fgnlqc"
-const charlesImg = "https://media.licdn.com/dms/image/v2/D5603AQH4wBgvKk-Wcg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1707755947419?e=1770249600&v=beta&t=1FozAGNDDXXkY3p02Leq0ptPrUIxWaDmS9-W1oPptAI"
+// Image Constants
+const amanImg = "https://media.licdn.com/dms/image/v2/D5603AQFGd0MKzxIKVg/profile-displayphoto-scale_200_200/B56ZjaJfJiG4AY-/0/1756006579143?e=1770249600&v=beta&t=u6wqYIaWMrtYy-49pBhIjru2aIoZLp1iqsxoudeUXYA";
+const jordanImg = "https://media.licdn.com/dms/image/v2/D4D03AQHDdmG9LSKSrw/profile-displayphoto-scale_200_200/B4DZkr2I.rJkAY-/0/1757377238966?e=1770249600&v=beta&t=5hPoCGWm0w-EV3zKninUzgTeeDs2RLV2yvFtVMYTqw4";
+const kyleImg = "https://media.licdn.com/dms/image/v2/D5603AQE3owjTmQM9Tw/profile-displayphoto-scale_200_200/B56ZivNEYyG0Ac-/0/1755286095861?e=1770249600&v=beta&t=ap674sJdjPilIw36TNiHlKnlEkvQOMCrq6NpDmTrViQ";
+const jayImg = "https://media.licdn.com/dms/image/v2/C4E03AQFO-8em7wwr0Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517725580714?e=1770249600&v=beta&t=sPdulpsC-qBlq6KuUMMO35y0cECjxrmZxuOdP4ZFl0A";
+const patrickImg = "https://media.licdn.com/dms/image/v2/D4E03AQFJL-xT7mDtpg/profile-displayphoto-scale_200_200/B4EZquYZlhHMAY-/0/1763862224061?e=1770249600&v=beta&t=Ojez51rr8j4ApzNi_ZPbBAa_9wPpZWIA9bpg5Fgnlqc";
+const charlesImg = "https://media.licdn.com/dms/image/v2/D5603AQH4wBgvKk-Wcg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1707755947419?e=1770249600&v=beta&t=1FozAGNDDXXkY3p02Leq0ptPrUIxWaDmS9-W1oPptAI";
 
 const testimonials = [
   {
@@ -55,14 +55,14 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-16 md:py-24 px-4 md:px-6 bg-neutral-950 relative overflow-hidden">
+    <section className="py-20 md:py-28 px-4 md:px-6 bg-neutral-950 relative overflow-hidden">
       {/* Background Gradients */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neutral-900 via-neutral-950 to-neutral-950 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-16">
+        <div className="text-center mb-16 md:mb-20">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-neutral-500 bg-clip-text text-transparent">
             Trusted by Industry Leaders
           </h2>
@@ -71,56 +71,58 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        {/* Testimonials Grid - RESPONSIVE CLASSES HERE */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        {/* Testimonials Grid 
+            Added gap-y-16 to allow space for the floating heads 
+        */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-16">
           {testimonials.map((client, index) => (
+            
+            // --- NEW CARD LAYOUT ---
             <div 
               key={index} 
-              className="group flex flex-col p-5 md:p-6 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900/80 hover:border-neutral-700 transition-all duration-300"
+              // Added mt-12 to push the card down so the head doesn't get cut off
+              className="group relative flex flex-col items-center mt-12 p-6 pt-12 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900/80 hover:border-neutral-700 transition-all duration-300"
             >
               
-              {/* Quote Icon */}
-              <div className="mb-4 md:mb-6">
-                <Quote size={28} className="text-neutral-700 group-hover:text-white transition-colors md:w-8 md:h-8" />
+              {/* 1. BIG FLOATING IMAGE (Absolute Positioned) */}
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-20">
+                 <div className="w-20 h-20 rounded-full border-4 border-neutral-900 bg-neutral-800 overflow-hidden shadow-xl group-hover:scale-105 transition-transform duration-300">
+                    <img 
+                      src={client.image} 
+                      alt={client.name} 
+                      className="w-full h-full object-cover" 
+                    />
+                 </div>
+                 {/* Optional: Small Quote Icon Badge on the image */}
+                 <div className="absolute bottom-0 right-0 bg-white text-black p-1 rounded-full border-2 border-neutral-900">
+                    <Quote size={12} fill="currentColor" />
+                 </div>
               </div>
 
-              {/* Content */}
-              <p className="text-neutral-300 text-base md:text-lg leading-relaxed mb-6 flex-grow">
+              {/* 2. TOP RIGHT LINKEDIN ICON */}
+              <div className="absolute top-4 right-4 text-neutral-600 group-hover:text-[#0077b5] transition-colors">
+                 <Linkedin size={20} />
+              </div>
+
+              {/* 3. NAME & ROLE (Centered) */}
+              <div className="text-center mb-6 w-full">
+                <h4 className="text-white text-lg font-semibold flex items-center justify-center gap-1.5 mb-1">
+                  {client.name}
+                  {/* Verified Check */}
+                  <svg className="w-4 h-4 text-blue-500 fill-current shrink-0" viewBox="0 0 24 24">
+                      <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7L6 12.6l1.5-1.5 2.6 2.6 6.4-6.4 1.5 1.5-7.9 7.9z"></path>
+                  </svg>
+                </h4>
+                <p className="text-sm text-neutral-500 font-medium px-2 truncate">
+                  {client.role}
+                </p>
+              </div>
+
+              {/* 4. CONTENT (Centered) */}
+              <p className="text-neutral-300 text-base leading-relaxed text-center italic relative z-10">
                 "{client.content}"
               </p>
 
-              {/* User Profile */}
-              <div className="flex items-center gap-3 md:gap-4 mt-auto pt-4 md:pt-6 border-t border-neutral-800/50">
-                {/* Avatar */}
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-neutral-800 overflow-hidden border border-neutral-700 shrink-0">
-                  {client.image ? (
-                     <img src={client.image} alt={client.name} className="w-full h-full object-cover" />
-                  ) : (
-                     <div className="w-full h-full flex items-center justify-center text-neutral-500 font-bold text-sm md:text-base">
-                        {client.name[0]}
-                     </div>
-                  )}
-                </div>
-                
-                {/* Name & Role (With truncation for mobile safety) */}
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-white text-sm md:text-base font-semibold truncate flex items-center gap-1">
-                    {client.name}
-                    {/* Blue Checkmark */}
-                    <svg className="w-3 h-3 md:w-4 md:h-4 text-blue-500 fill-current shrink-0" viewBox="0 0 24 24">
-                        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7L6 12.6l1.5-1.5 2.6 2.6 6.4-6.4 1.5 1.5-7.9 7.9z"></path>
-                    </svg>
-                  </h4>
-                  <p className="text-xs md:text-sm text-neutral-500 truncate">
-                    {client.role}
-                  </p>
-                </div>
-                
-                {/* LinkedIn Logo */}
-                <a href="#" className="p-1">
-                    <Linkedin size={18} className="text-neutral-600 group-hover:text-[#0077b5] transition-colors md:w-5 md:h-5" />
-                </a>
-              </div>
             </div>
           ))}
         </div>

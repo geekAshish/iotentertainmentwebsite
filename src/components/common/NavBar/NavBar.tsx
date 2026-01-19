@@ -44,7 +44,9 @@ const NavBar = () => {
       
       {/* --- Logo --- */}
       <div className="flex justify-between items-center gap-10">
-        <AnimatedLogo logoSrc={logo} />
+        <a href="/">
+          <AnimatedLogo logoSrc={logo} />
+        </a>
 
         {/* --- DESKTOP Navigation (Hover based) --- */}
         <div>

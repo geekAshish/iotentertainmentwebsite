@@ -138,11 +138,6 @@ const Home = () => {
         <InfiniteMarquee />
         <WhatWeOffer />
       </div>
-
-      <div className="py-10">
-      <h2 id="contact-us" className="text-white text-center text-4xl md:text-6xl font-bold mb-5">Contact Us</h2>
-        <LeadForm />
-      </div>
     </div>
   );
 };

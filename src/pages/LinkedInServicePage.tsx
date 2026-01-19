@@ -1,17 +1,10 @@
-import React from "react";
 import { 
   Check, 
   X, 
-  ArrowRight, 
   TrendingUp, 
-  Users, 
-  ShieldCheck, 
-  Target, 
-  Zap, 
-  BarChart3 
+  Target,
 } from "lucide-react";
-import { Button } from "@/components/ui/Button"; // Assuming you have this
-import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/Button";
 import TestimonialsSection from "@/components/LinkedInServicePage";
 
 const LinkedInServicePage = () => {
@@ -253,7 +246,7 @@ const LinkedInServicePage = () => {
 
 // --- SUB COMPONENTS ---
 
-const PricingCard = ({ title, price, sub, features, isPopular }) => (
+const PricingCard = ({ title, price, sub, features, isPopular = false }: { title: string, price: string, sub: string, features: string[], isPopular?: boolean }) => (
   <div className={`relative flex flex-col p-8 rounded-3xl border ${isPopular ? 'border-white bg-neutral-900' : 'border-neutral-800 bg-neutral-950'} h-full transition-transform hover:-translate-y-2`}>
     {isPopular && (
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-black px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg">
@@ -273,7 +266,7 @@ const PricingCard = ({ title, price, sub, features, isPopular }) => (
     <div className="border-t border-neutral-800 my-6"></div>
 
     <ul className="space-y-4 mb-8 flex-1">
-      {features.map((feature, i) => (
+      {features.map((feature: string, i: number) => (
         <li key={i} className="flex gap-3 text-sm text-neutral-300">
           <Check size={18} className="text-white shrink-0" />
           {feature}
@@ -287,7 +280,7 @@ const PricingCard = ({ title, price, sub, features, isPopular }) => (
   </div>
 );
 
-const FaqItem = ({ question, answer }) => (
+const FaqItem = ({ question, answer }: { question: string, answer: string }) => (
   <div className="border border-neutral-800 rounded-xl p-6 bg-neutral-900/30">
     <h3 className="text-lg font-bold mb-2 text-white">{question}</h3>
     <p className="text-neutral-400">{answer}</p>
