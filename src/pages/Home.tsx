@@ -9,7 +9,6 @@ import { VerticalOutlineText } from "@/components/ui/VerticleOutlineText";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 import video from '@/assets/background_video.mp4'; 
-import LeadForm from "@/components/LeadForm";
 import ArrowFollow from "@/components/ArrowFollow";
 import InfiniteMarquee from "@/components/InfiniteMarquee";
 

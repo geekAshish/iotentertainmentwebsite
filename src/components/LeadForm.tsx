@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CalendarClock } from "lucide-react";
 import video from '@/assets/iot-avatar-2-mp4 bg remove with green grass.webm';
 
 export default function LeadForm() {
@@ -47,8 +48,33 @@ export default function LeadForm() {
   return (
     // Added min-h-screen and bg-zinc-950 for a full-page dark layout
     <div className="bg-zinc-950">
-      <h2 id="contact-us" className="text-white text-center text-4xl md:text-6xl font-bold mb-5">Contact Us</h2>
-    <div className="flex min-h-screen w-full items-center justify-center px-4 py-10 sm:px-6 lg:px-8">
+      <h2 id="contact-us" className="text-white text-center text-4xl md:text-6xl font-bold pt-5">Contact Us</h2>
+
+      <div className="mt-8 flex flex-col items-center gap-4 px-4">
+        <a
+          href="https://calendly.com/iotitsontrend/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+            inline-flex w-full max-w-sm items-center justify-center gap-3
+            rounded-full bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600
+            px-6 py-3 text-base font-semibold text-white md:max-w-md md:py-4 md:text-lg
+            shadow-lg shadow-blue-600/30
+            transition
+            hover:-translate-y-1 hover:shadow-blue-600/50
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950
+          "
+        >
+          <CalendarClock className="h-4 w-4" />
+          <span>Book a 30-min call</span>
+        </a>
+
+        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400 pt-5 md:text-sm">
+          or
+        </span>
+      </div>
+
+    <div className="flex min-h-screen w-full items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
       <div
         className="
           mx-auto
