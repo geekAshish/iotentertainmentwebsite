@@ -30,11 +30,11 @@ const LinkedInServicePage = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button className="px-8 py-4 text-lg rounded-full bg-white text-black hover:bg-neutral-200 transition-all">
-            View Pricing Plans
+          <Button asChild className="px-8 py-4 text-lg rounded-full bg-white text-black hover:bg-neutral-200 transition-all">
+            <a href="#contact-us">View Pricing Plans</a>
           </Button>
-          <Button className="px-8 py-4 text-lg rounded-full border border-neutral-700 hover:bg-neutral-900 transition-all text-white">
-            Book a Strategy Audit
+          <Button asChild className="px-8 py-4 text-lg rounded-full border border-neutral-700 hover:bg-neutral-900 transition-all text-white">
+            <a href="#contact-us">Book a Strategy Audit</a>
           </Button>
         </div>
       </section>
@@ -54,7 +54,7 @@ const LinkedInServicePage = () => {
                 <X size={24} />
                 <h3 className="text-xl font-semibold">The Commodity</h3>
               </div>
-              <p className="text-2xl font-bold mb-2">₹3k - ₹15k</p>
+              {/* <p className="text-2xl font-bold mb-2">₹3k - ₹15k</p> */}
               <p className="text-sm text-neutral-500 mb-6">The "Cheap Freelancer"</p>
               <ul className="space-y-3 text-sm text-neutral-400">
                 <li className="flex gap-2"><X size={16} /> Focus on "Number of Posts"</li>
@@ -72,7 +72,7 @@ const LinkedInServicePage = () => {
                 <TrendingUp size={24} className="text-green-400" />
                 <h3 className="text-xl font-semibold">The Growth Engine</h3>
               </div>
-              <p className="text-2xl font-bold mb-2">₹20k - ₹1L</p>
+              {/* <p className="text-2xl font-bold mb-2">₹20k - ₹1L</p> */}
               <p className="text-sm text-neutral-400 mb-6">Strategy + Execution</p>
               <ul className="space-y-3 text-sm text-neutral-300">
                 <li className="flex gap-2"><Check size={16} className="text-green-400"/> Custom ICP & Strategy</li>
@@ -88,7 +88,7 @@ const LinkedInServicePage = () => {
                 <Target size={24} />
                 <h3 className="text-xl font-semibold">The Consultant</h3>
               </div>
-              <p className="text-2xl font-bold mb-2">₹75k - ₹1.5L</p>
+              {/* <p className="text-2xl font-bold mb-2">₹75k - ₹1.5L</p> */}
               <p className="text-sm text-neutral-500 mb-6">The "Pure Strategist"</p>
               <ul className="space-y-3 text-sm text-neutral-400">
                 <li className="flex gap-2"><Check size={16} /> Great high-level roadmap</li>
@@ -103,15 +103,13 @@ const LinkedInServicePage = () => {
       <TestimonialsSection />
 
       {/* --- PRICING SECTION --- */}
-      <section className="py-24 px-6 max-w-7xl mx-auto" id="pricing">
+      {/* <section className="py-24 px-6 max-w-7xl mx-auto" id="pricing">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Transparent Pricing</h2>
           <p className="text-neutral-400">Choose the speed of your growth. No hidden fees.</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 items-start">
-          
-          {/* PACKAGE 1: PRESENCE */}
           <PricingCard 
             title="The Presence"
             price="₹25,000"
@@ -124,8 +122,6 @@ const LinkedInServicePage = () => {
               "Zero Bots, 100% Organic"
             ]}
           />
-
-          {/* PACKAGE 2: GROWTH ENGINE */}
           <PricingCard 
             title="Growth Engine"
             price="₹55,000"
@@ -140,8 +136,6 @@ const LinkedInServicePage = () => {
               "Bi-Weekly Strategy Calls"
             ]}
           />
-
-          {/* PACKAGE 3: AUTHORITY PARTNER */}
           <PricingCard 
             title="Authority Partner"
             price="₹95,000"
@@ -156,7 +150,7 @@ const LinkedInServicePage = () => {
             ]}
           />
         </div>
-      </section>
+      </section> */}
 
       {/* --- OPERATIONAL ROADMAP --- */}
       <section className="py-20 px-6 bg-neutral-900/20">
@@ -205,9 +199,9 @@ const LinkedInServicePage = () => {
             Start with our <strong>"Profile & Strategy Audit"</strong>. We'll tear down your profile, identify the leaks, and give you a 30-day content calendar you can execute yourself.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <span className="text-3xl font-bold text-white">₹7,999</span>
-            <Button className="rounded-full px-8 py-3 bg-white text-black hover:bg-neutral-200">
-              Book Your Audit
+            {/* <span className="text-3xl font-bold text-white">₹7,999</span> */}
+            <Button asChild className="rounded-full px-8 py-3 bg-white text-black hover:bg-neutral-200">
+              <a href="#contact-us">Book Your Audit</a>
             </Button>
           </div>
         </div>
@@ -235,8 +229,8 @@ const LinkedInServicePage = () => {
       {/* --- FINAL CTA --- */}
       <section className="py-20 text-center border-t border-neutral-900">
         <h2 className="text-4xl font-bold mb-6">Ready to scale your authority?</h2>
-        <Button className="rounded-full px-10 py-4 text-xl bg-white text-black hover:bg-neutral-200">
-          Get Started
+        <Button asChild className="rounded-full px-10 py-4 text-xl bg-white text-black hover:bg-neutral-200">
+          <a href="#contact-us">Get Started</a>
         </Button>
       </section>
 
@@ -244,9 +238,7 @@ const LinkedInServicePage = () => {
   );
 };
 
-// --- SUB COMPONENTS ---
-
-const PricingCard = ({ title, price, sub, features, isPopular = false }: { title: string, price: string, sub: string, features: string[], isPopular?: boolean }) => (
+export const PricingCard = ({ title, price, sub, features, isPopular = false }: { title: string, price: string, sub: string, features: string[], isPopular?: boolean }) => (
   <div className={`relative flex flex-col p-8 rounded-3xl border ${isPopular ? 'border-white bg-neutral-900' : 'border-neutral-800 bg-neutral-950'} h-full transition-transform hover:-translate-y-2`}>
     {isPopular && (
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-black px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg">

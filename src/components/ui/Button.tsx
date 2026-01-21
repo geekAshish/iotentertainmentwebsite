@@ -48,6 +48,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : 'button';
     const isDisabled = isLoading || props.disabled;
 
+    const content = (
+      <span className="inline-flex items-center justify-center">
+        {leftIcon ? <span className="mr-2">{leftIcon}</span> : null}
+        <span>{children}</span>
+        {isLoading ? <Loader2 className="ml-2 h-4 w-4 animate-spin" /> : null}
+        {rightIcon ? <span className="ml-2">{rightIcon}</span> : null}
+      </span>
+    );
+
     return (
       <Comp
         className={twMerge(buttonVariants({ variant, size, className }))}
@@ -55,14 +64,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isDisabled}
         {...props}
       >
-        <div className='mr-2'>
-          {leftIcon}
-        </div>
-        {children}
-        {isLoading ? <Loader2 className="my-2 h-4 w-4 animate-spin" /> : null}
-        <div className='ml-2'>
-          {rightIcon}
-        </div>
+        {content}
       </Comp>
     );
   }
